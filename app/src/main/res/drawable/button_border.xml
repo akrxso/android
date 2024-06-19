@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent"/> <!-- 배경색을 투명으로 설정 -->
+    <stroke
+        android:width="2dp"
+        android:color="#003399"/> <!-- 외곽선을 파란색으로 설정 -->
+    <corners android:radius="8dp"/> <!-- 모서리를 둥글게 설정 -->
+</shape>
