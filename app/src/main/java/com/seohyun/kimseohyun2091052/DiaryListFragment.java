@@ -92,14 +92,11 @@ public class DiaryListFragment extends Fragment {
 
     private void showDeleteConfirmationDialog(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("다이어리 지우❌")
+        builder.setTitle("다이어리 지우기❌")
                 .setMessage("네를 누르면 다시 복구가 안됩니다!")
-                .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // User confirmed, delete the diary
-                        deleteDiary(position);
-                    }
+                .setPositiveButton("네", (dialog, which) -> {
+                    // User confirmed, delete the diary
+                    deleteDiary(position);
                 })
                 .setNegativeButton("아니오", null)
                 .show();
@@ -124,4 +121,10 @@ public class DiaryListFragment extends Fragment {
                     Log.e("DiaryListFragment", "Error deleting diary", e);
                 });
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchDiaries();
+    }
+
 }
